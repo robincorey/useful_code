@@ -17,6 +17,12 @@ strip_var = var.rstrip('.xvg')
 # To remove chars from whole thing
 var = "H@e@ll@o"
 repl_var = var.replace('@','')
+#or
+def anti_vowel(text):
+  vowels = ['A','E','I','O','U','a','e','i','o','u']
+  for v in vowels:
+    text = text.replace(v,'')
+  return text
 
 # Lists 
 my_list = [1, "Hello", 3.4]
