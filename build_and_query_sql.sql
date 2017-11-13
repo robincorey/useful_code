@@ -36,3 +36,6 @@ SELECT * FROM simnames WHERE simlength BETWEEN 100 AND 200 and forcefield = 'OPL
 SELECT * FROM simnames ORDER BY simlength DESC LIMIT 3; /* DESC = descending order LIMIT = head/tail */
 SELECT DISTNCT simlength FROM simulationdata;
 
+/* aggregate functions */
+SELECT COUNT(*) FROM simnames; /* count number of rows */
+SELECT simlength, COUNT(*) FROM simnames GROUP BY simlength;
