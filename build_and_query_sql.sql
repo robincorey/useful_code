@@ -32,8 +32,7 @@ SELECT * FROM WHERE simlength > 500;
 SELECT * FROM simnames WHERE name BETWEEN 'A' AND 'J';
 SELECT * FROM simnames WHERE simname LIKE 'ADP%'; /* % is a wildcard for zero or more letters */
 SELECT * FROM simnames WHERE simname LIKE '%_WT'; 
-SELECT * FROM simnames WHERE simlength BETWEEN 100 AND 200 and forcefield = 'OPLS' or simname = "WT_*';
+SELECT * FROM simnames WHERE simlength BETWEEN 100 AND 200 and forcefield = 'OPLS' or simname = "WT_*";
 SELECT * FROM simnames ORDER BY simlength DESC LIMIT 3; /* DESC = descending order LIMIT = head/tail */
-
 SELECT DISTNCT simlength FROM simulationdata;
 
