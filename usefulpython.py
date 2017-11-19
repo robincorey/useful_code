@@ -78,3 +78,15 @@ reverse('hello')
 # Print run time of script
 print datetime.now() - startTime
 
+# define dictionary
+dictionary = {
+  "simname": "WT_ADP",
+  "length": 500,
+}
+
+print my_dict.items() # items=all items, keys=list of key, values=list of vals
+for key in my_dict:
+  print key, my_dict[key]
+  
+# list comprehension
+even_squares = [i ** 2 for i in range(1,11) if i % 2 == 0]
