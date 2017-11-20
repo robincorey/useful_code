@@ -1,5 +1,3 @@
-#!/home/birac/anaconda2/bin/python
-
 # Record time that script starts
 startTime = datetime.now()
 
@@ -128,3 +126,25 @@ from functools import reduce
 product = reduce((lambda x, y: x * y), [1, 2, 3, 4])
 squared = list(map(lambda x: x**2, items))
 
+# Bitwise operators - operations that manage bits of info
+print 0b1, # 0b means binary, 1 means 1
+print 0b111, # 111 = 7 , one four, one two and one one
+print bin(5) # print the binary of an integer oct(5) and hex(5) work too
+print int("0b100",2) # second parameter refers to the base the number is in (10 default)
+shift_right = 0b1100 >> 2  # =0b11 shifts your binary number left or right
+print bin(0b1110 & 0b101) # =0b100 returns 1 if both numbers 1 in that position. Can do or too (|) or exclusive or (^)
+
+#### Classes - important to OOP. Class is a way of organizing and producing objects with similar attributes and methods
+class NewClass(object):  # new class (use Caps), which inherits from the 'object' class
+  member_variable = "Hello"             # Define "instance variables" available to this class only (i.e. not global variables)
+  def __init__(self, name, age)         # initialize object. always start with self, then add other tings
+    self.name = name                    # create an instance object
+    self.age = age
+  def description(self):                # Can define own methods. __init__ is a method, so is this
+    print self.name
+    print self.age
+
+hippo = Animal("Poupe", 3)              # To call bespoke method
+hippo.description()
+    
+    # When dealing with classes, you can have variables that are available everywhere (global variables), variables that are only available to members of a certain class (member variables), and variables that are only available to particular instances of a class (instance variables).
