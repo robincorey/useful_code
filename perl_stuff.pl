@@ -1,3 +1,6 @@
+use strict; # strict variables
+use warnings;
+
 # perl awesome at reading files
 open RFILE,"<$filename" or die "Cannot read from $filename: $!\n";
 
@@ -22,3 +25,10 @@ $line =~ s/the/THE/g;
 # uses backticks like shell
 @files = `ls $directory`;
 # @ is an array I guess
+
+# if loops
+my $fragment = "APC";
+
+if ($fragment =~ m/P/) { 
+    my $propensity = "Hello";   
+}
