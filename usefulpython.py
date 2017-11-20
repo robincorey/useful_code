@@ -136,7 +136,7 @@ print bin(0b1110 & 0b101) # =0b100 returns 1 if both numbers 1 in that position.
 
 #### Classes - important to OOP. Class is a way of organizing and producing objects with similar attributes and methods
 class NewClass(object):  # new class (use Caps), which inherits from the 'object' class
-  member_variable = "Hello"             # Define "instance variables" available to this class only (i.e. not global variables)
+  member_variable = "Hello"             # Define "member variables" available to this class only (i.e. not global variables)
   def __init__(self, name, age)         # initialize object. always start with self, then add other tings
     self.name = name                    # create an instance object
     self.age = age
