@@ -147,4 +147,8 @@ class NewClass(object):  # new class (use Caps), which inherits from the 'object
 hippo = Animal("Poupe", 3)              # To call bespoke method
 hippo.description()
     
+# Inheritance is the process by which one class takes on the attributes and methods of another, and it's used to express an is-a relationship. 
+
+class InheritedClass(BaseClass):    # declare class to inherit from in brackets
+
     # When dealing with classes, you can have variables that are available everywhere (global variables), variables that are only available to members of a certain class (member variables), and variables that are only available to particular instances of a class (instance variables).
