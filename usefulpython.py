@@ -136,19 +136,51 @@ print bin(0b1110 & 0b101) # =0b100 returns 1 if both numbers 1 in that position.
 
 #### Classes - important to OOP. Class is a way of organizing and producing objects with similar attributes and methods
 class NewClass(object):  # new class (use Caps), which inherits from the 'object' class
-  member_variable = "Hello"             # Define "member variables" available to this class only (i.e. not global variables)
-  def __init__(self, name, age)         # initialize object. always start with self, then add other tings
-    self.name = name                    # create an instance object
+  member_variable = "Hello"             # Define "member variables" available to this class only (i.e. not global variables). All members have this
+  def __init__(self, name, age)         # initialize object. always start with self, then add other tings. Self will = name of described object. DON'T NEED/
+  # The first argument passed to __init__() must always be the keyword self - this is how the object keeps track of itself internally 
+    self.name = name                    # create an instance object. We assign a variable (name) to the class (via self) = new member variable
     self.age = age
   def description(self):                # Can define own methods. __init__ is a method, so is this
     print self.name
     print self.age
+  
+hippo = Animal("Poupe", 3)              # To call bespoke method. Now hippo=self
+print hippo.name                        # will print Poupe
+print hippo.member_variable             # will be Hello by default for every new Animal. This is a member variable - all members of this class have this value
+hippo.member_variable = "Goodbye"       # This will ONLY change the member variable for hippo, not other Animals
 
-hippo = Animal("Poupe", 3)              # To call bespoke method
-hippo.description()
+hippo.description() # to call bespoke method
+
+class Car(object):
+  condition = "new"
+  def __init__(self, model, color, mpg):
+    self.model = model
+    self.color = color
+    self.mpg   = mpg
     
+  def display_car(self):
+    m = str(self.mpg)
+    return "This is a %s %s with %s MPG." % (self.color, self.model, m)
+  def drive_car(self):
+    self.condition = "used"
+  
+my_car = Car("DeLorean", "silver", 88)
+
+print my_car.display_car()
+print my_car.condition
+my_car.drive_car()
+print my_car.condition # changes from new to used
+
 # Inheritance is the process by which one class takes on the attributes and methods of another, and it's used to express an is-a relationship. 
 
 class InheritedClass(BaseClass):    # declare class to inherit from in brackets
 
-    # When dealing with classes, you can have variables that are available everywhere (global variables), variables that are only available to members of a certain class (member variables), and variables that are only available to particular instances of a class (instance variables).
+class ElectricCar(Car):
+  def __init__(self, model, color, mpg, battery_type): # need to define al variables again
+    self.model = model                                  # need to define all this crap again
+    self.color = color
+    self.mpg = mpg 
+    self.battery_type = battery_type
+    
+my_car = ElectricCar("Honda", "blue", 100, "molten salt")
