@@ -184,3 +184,19 @@ class ElectricCar(Car):
     self.battery_type = battery_type
     
 my_car = ElectricCar("Honda", "blue", 100, "molten salt")
+
+# I/O
+
+my_list = [i ** 2 for i in range(1, 11)]
+my_file = open("output.txt", "w")
+for i in my_list:
+  istr = str(i)
+  my_file.write(istr + "\n")
+my_file.close()    # otherwise python doesn't flush the buffer - i.e might not write to the file
+
+my_file = open("output.txt","r")
+print my_file.read()
+my_file.close()
+
+with open("text.txt", "w") as textfile:  # this invokes autoexit. No need for closing.
+  textfile.write("Success!")
