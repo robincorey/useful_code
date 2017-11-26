@@ -13,20 +13,31 @@
 /* or can link to sep css file */
  
 <head>
- <link href="./style.css" type="text/css" rel="stylesheet"><html>
+ <link href="path/to/style.css" type="text/css" rel="stylesheet"><html>
 </head>
 
- Everything below here about separate css file
+/* Everything below here about separate css file */
+/* Css can select HTML by tag, class or id */
+
+/* tag */
+
+p {
+ font-family: Arial;
+}
  
+/* class - can be used for many elements*/
+
 .brand {                 /* . = class, specified in HTML as <p class="brand">Company name</p> */
   font-weight: bold;      
   }
   
-.green {                  /* can specify two classes as <p class="brand green">Company name</p> */
+.green {                  /* can specify multiple classes as <p class="brand green">Company name</p> */
   color: green;
 }
 
-#article-title{
+/* id - meant for one element. Override tag and classses */
+
+#article-title{            /* #=id. HTML = <p id="article-title">Welcome to page</p> */
   font-family: cursive;
   text-transform: capitalize;
 }
