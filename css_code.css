@@ -18,6 +18,10 @@
 
 /* Everything below here about separate css file */
 
+h1 {                /* css "selector" */
+  color: blue;      /* css "declaration". Property: value; */
+}                   /* whole thing is css "rule" */
+
 /* change multiple selectors at once */
 h5,
 p {
@@ -64,3 +68,76 @@ h1.special {     /* select only h1 elements with a class of "special" */
 h5 {
  color: red !important;  /* !important override ANY style. Best to avoid.. */
  }
+ 
+ /* some example */
+ body {
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  color: #FFF;
+  font-size: 2em;
+  padding-top: 100px;
+  width: 100%;
+  font-family: Georgia;
+  text-align: center;
+}
+
+h2 {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+  color: rgba(255, 255, 255, 0.5);
+  font-weight: 100;
+  font-size: 22px;
+  line-height: 24px;
+  padding-bottom: 30px;
+  text-align: left;
+  width: 70%;
+  font-family: Georgia;
+}
+
+p {
+  color: AliceBlue;
+  line-height: 1.3em;
+  text-align: left;
+  width: 100%;
+  font-family: Helvetica;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.byline {
+  font-family: Helvetica;
+  color: rgba(255, 255, 255, 0.5);  /* cool */
+  float: left;
+  font-size: 14px;
+  padding-left: 10px;
+  text-transform: uppercase;   /* cool */
+}
+
+.caption {
+  display: block;
+  font-family: 'Playfair Display', serif;
+  font-size: 14px;
+  font-style: italic;
+  line-height: 14px;
+  margin-left: 20px;
+  padding: 10px;
+  position: relative;
+  top: 80%;
+  width: 60%;
+  background-color: white;
+  color: black;
+  opacity: 0.75;   /* cool */
+}
+
+.content {
+  padding: 40px;
+}
+
+.image {
+  background-image: url("https://s3.amazonaws.com/codecademy-content/courses/freelance-1/unit-2/soccer.jpeg");
+  background-size: cover;
+  background-position: center;
+  height: 300px;
+}
