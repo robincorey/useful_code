@@ -17,16 +17,21 @@
 </head>
 
 /* Everything below here about separate css file */
-/* Css can select HTML by tag, class or id */
 
+/* change multiple selectors at once */
+h5,
+p {
+  font-family: Georgia;
+}
+
+/* specificity*/
+/* Css can select HTML by tag (least specific), class or id (most specific) */
 /* tag */
-
 p {
  font-family: Arial;
 }
  
 /* class - can be used for many elements*/
-
 .brand {                 /* . = class, specified in HTML as <p class="brand">Company name</p> */
   font-weight: bold;      
   }
@@ -36,8 +41,26 @@ p {
 }
 
 /* id - meant for one element. Override tag and classses */
-
 #article-title{            /* #=id. HTML = <p id="article-title">Welcome to page</p> */
-  font-family: cursive;
+  font-family: cursive;     /* tag better than class - easier to edit (IDs get awks)
   text-transform: capitalize;
 }
+
+/* chaining - combine multiple selectors */
+h1.special {     /* select only h1 elements with a class of "special" */
+  font-family: cursive;
+}
+
+/* selecting nested elements */
+.main-list l1 {      /* HTML = <ul class='main-list' > <li> item 1 </li> </ul> etc. */
+ color: blue;
+ }
+ 
+ /* more specific selectors */
+ .description h5 { /* h5 and .description */
+  color: teal;
+}
+
+h5 {
+ color: red !important;  /* !important override ANY style. Best to avoid.. */
+ }
