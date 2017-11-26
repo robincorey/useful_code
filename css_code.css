@@ -1,0 +1,32 @@
+ /* inline */
+ <p style="font-family: Arial;">This text is now Arial.</p>
+ 
+ /* in HTML header */
+ <p>
+   <style>
+   p {
+     font-family: Arial;
+   }
+   </style>
+ <p>
+ 
+/* or can link to sep css file */
+ 
+<head>
+ <link href="./style.css" type="text/css" rel="stylesheet"><html>
+</head>
+
+ Everything below here about separate css file
+ 
+.brand {                 /* . = class, specified in HTML as <p class="brand">Company name</p> */
+  font-weight: bold;      
+  }
+  
+.green {                  /* can specify two classes as <p class="brand green">Company name</p> */
+  color: green;
+}
+
+#article-title{
+  font-family: cursive;
+  text-transform: capitalize;
+}
