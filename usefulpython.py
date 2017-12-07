@@ -200,3 +200,36 @@ my_file.close()
 
 with open("text.txt", "w") as textfile:  # this invokes autoexit. No need for closing.
   textfile.write("Success!")
+
+# From Data python workshop 07/12/17
+
+letter_to_morse = {'a':'.-', 'b':'-...', 'c':'-.-.', 'd':'-..', 'e':'.', 'f':'..-.',
+                   'g':'--.', 'h':'....', 'i':'..', 'j':'.---', 'k':'-.-', 'l':'.-..', 'm':'--',
+                   'n':'-.', 'o':'---', 'p':'.--.', 'q':'--.-', 'r':'.-.', 's':'...', 't':'-',
+                   'u':'..-', 'v':'...-', 'w':'.--', 'x':'-..-', 'y':'-.--', 'z':'--..',
+                   '0':'-----', '1':'.----', '2':'..---', '3':'...--', '4':'....-',
+                   '5':'.....', '6':'-....', '7':'--...', '8':'---..', '9':'----.',
+                   ' ':'/' }
+message = "SOS We have hit an iceberg and need help quickly"
+morse = []
+for letter in message:
+    morse.append(letter_to_morse[letter.lower()])
+    
+print(morse)
+
+class Morse:
+    def __init__(self):
+        self._letter_to_morse = {'a':'.-', 'b':'-...', 'c':'-.-.', 'd':'-..', 'e':'.', 'f':'..-.', ## _ before letter prevents changes
+                   'g':'--.', 'h':'....', 'i':'..', 'j':'.---', 'k':'-.-', 'l':'.-..', 'm':'--',
+                   'n':'-.', 'o':'---', 'p':'.--.', 'q':'--.-', 'r':'.-.', 's':'...', 't':'-',
+                   'u':'..-', 'v':'...-', 'w':'.--', 'x':'-..-', 'y':'-.--', 'z':'--..',
+                   '0':'-----', '1':'.----', '2':'..---', '3':'...--', '4':'....-',
+                   '5':'.....', '6':'-....', '7':'--...', '8':'---..', '9':'----.',
+                   ' ':'/' }
+        
+    def encode(self, message):
+        morse = []
+        for letter in message:
+            morse.append( self._letter_to_morse[letter.lower()] )
+        return morse
+
