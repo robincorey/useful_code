@@ -215,6 +215,8 @@ morse = []
 for letter in message:
     morse.append(letter_to_morse[letter.lower()])
     
+#small change
+    
 print(morse)
 
 class Morse:
