@@ -22,6 +22,8 @@ def anti_vowel(text):
     text = text.replace(v,'')
   return text
 
+del anti_vowel # delete a function.
+
 # Lists 
 my_list = [1, "Hello", 3.4]
 print(my_list[2:3]) # print range
@@ -38,6 +40,7 @@ for a, b in zip(my_list, my_list): # iterate two lists
   
 # check if number even
 def is_even(x):
+  ''' Notes here. This shows up in the 'help section '''p
   if x % 2 == 0:
     return True
   else:
@@ -136,12 +139,20 @@ print bin(0b1110 & 0b101) # =0b100 returns 1 if both numbers 1 in that position.
 
 #### Classes - important to OOP. Class is a way of organizing and producing objects with similar attributes and methods
 class NewClass(object):  # new class (use Caps), which inherits from the 'object' class
+  ''' Add documentation here
+      Blah blah blah
+  '''
   member_variable = "Hello"             # Define "member variables" available to this class only (i.e. not global variables). All members have this
-  def __init__(self, name, age)         # initialize object. always start with self, then add other tings. Self will = name of described object. DON'T NEED/
-  # The first argument passed to __init__() must always be the keyword self - this is how the object keeps track of itself internally 
+  def __init__(self, name, age)         # Constructor: initializes object. always start with self, then add other tings. Self will = name of described object. DON'T NEED/
+    ''' Add documentation about constructor here
+        Blah blah blah
+    '''                                 # The first argument passed to __init__() must always be the keyword self - this is how the object keeps track of itself internally 
     self.name = name                    # create an instance object. We assign a variable (name) to the class (via self) = new member variable
+    self._name = name                   # underscore "hides" variable for security. Stops it being changed.
     self.age = age
   def description(self):                # Can define own methods. __init__ is a method, so is this
+    ''' Document member functions here
+    '''
     print self.name
     print self.age
   
@@ -234,4 +245,32 @@ class Morse:
         for letter in message:
             morse.append( self._letter_to_morse[letter.lower()] )
         return morse
+      
+# Exceptions!
+def setHeight(height):
+    if height < 0 or height > 300:
+        raise ValueError("Invalid height: %s. This should be between 0 and 300" % height)
+        
+    print("Height is set to %s" % height)
+def setHeight(height):
+    if height < 0 or height > 300:
+        raise ValueError("Invalid height: %s. This should be between 0 and 300" % height)
+        
+    print("Height is set to %s" % height)
+ValueError
+IOError
+ZeroDivisionError
+TypeError
+IndexError
+KeyError
 
+# try/except
+def setHeight(height):
+    try:
+        height = float(height)
+    except:
+        raise TypeError("Invalid height: '%s'. You can only set the height to a numeric value" % height)
+#regex
+import re
+^\s*(\d+\.?\d*)\s*(kg|kilogram?)\s*$
+https://regex101.com/
