@@ -66,3 +66,43 @@ def number_of_atoms(atom_list, df):
 # allows one to plot against each other, total atoms, logp etc
 number_of_atoms(['C','O', 'N', 'Cl'], df)
 
+# train a model using sklern 
+#  use ridge regression ; a model tuning method that is used to analyse any data that suffers from multicollinearity.
+from sklearn.linear_model import RidgeCV
+from sklearn.model_selection import train_test_split
+
+#Leave only features columns (i.e. remove smiles, mol and logpm keep num of each atom type)
+train_df = df.drop(columns=['smiles', 'mol', 'logP'])
+y = df['logP'].values
+
+print(train_df.columns)
+
+#Perform a train-test split. Use 10% of the data to evaluate the model while training on 90%
+X_train, X_test, y_train, y_test = train_test_split(train_df, y, test_size=.1, random_state=1)
+Index(['num_of_atoms', 'num_of_heavy_atoms', 'num_of_C_atoms',
+       'num_of_O_atoms', 'num_of_N_atoms', 'num_of_Cl_atoms'],
+      dtype='object')
+
+# evaluation using MAE or MSE. 
+from sklearn.metrics import mean_absolute_error, mean_squared_error
+def evaluation(model, X_test, y_test):
+    prediction = model.predict(X_test)
+    mae = mean_absolute_error(y_test, prediction)
+    mse = mean_squared_error(y_test, prediction)
+    
+    plt.figure(figsize=(15, 10))
+    plt.plot(prediction[:300], "red", label="prediction", linewidth=1.0)
+    plt.plot(y_test[:300], 'green', label="actual", linewidth=1.0)
+    plt.legend()
+    plt.ylabel('logP')
+    plt.title("MAE {}, MSE {}".format(round(mae, 4), round(mse, 4)))
+    plt.show()
+    
+    print('MAE score:', round(mae, 4))
+    print('MSE score:', round(mse,4))
+	
+#Train the model
+ridge = RidgeCV(cv=5)
+ridge.fit(X_train, y_train)
+#Evaluate results
+evaluation(ridge, X_test, y_test)
