@@ -106,3 +106,30 @@ ridge = RidgeCV(cv=5)
 ridge.fit(X_train, y_train)
 #Evaluate results
 evaluation(ridge, X_test, y_test)
+
+# RDKit atoms, bonds and rings
+# GetRingInfo(), GetAtoms() and GetBonds() yield corresponding generators over rings and atoms in molecule.
+
+atp = Chem.MolFromSmiles('C1=NC2=C(C(=N1)N)N=CN2[C@H]3[C@@H]([C@@H]([C@H](O3)COP(=O)(O)OP(=O)(O)OP(=O)(O)O)O)O')
+
+# Getting number of rings with specified number of backbones
+print('Number of rings with 1 backbone:', atp.GetRingInfo().NumAtomRings(1))
+print('Number of rings with 2 backbones:', atp.GetRingInfo().NumAtomRings(2))
+
+m = Chem.MolFromSmiles('C(=O)C(=N)CCl')
+#Iterating through atoms to get atom symbols and explicit valencies 
+for atom in m.GetAtoms():
+    print('Atom:', atom.GetSymbol(), 'Valence:', atom.GetExplicitValence())
+
+#rdkit.Chem.Descriptors provides a number of general molecular descriptors that can also be used to featurize a molecule.
+from rdkit.Chem import Descriptors
+df['tpsa'] = df['mol'].apply(lambda x: Descriptors.TPSA(x))
+df['mol_w'] = df['mol'].apply(lambda x: Descriptors.ExactMolWt(x))
+df['num_valence_electrons'] = df['mol'].apply(lambda x: Descriptors.NumValenceElectrons(x))
+df['num_heteroatoms'] = df['mol'].apply(lambda x: Descriptors.NumHeteroatoms(x))
+
+# followup mol2vec
+# Mol2vec is an unsupervised machine learning approach to obtain high dimensional embeddings of chemical substructures
+# 1. A molecule is divided into substructures of a fixed radius e.g. a group of closest atoms around a heavy atom)
+# 2. These  substructures are fed to Word2vec yielding vector representations of substructures 
+# 3. Summing up substructure vectors we get vector representations of whole molecules.
