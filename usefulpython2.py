@@ -20,7 +20,7 @@ for i in a:
 	print(i)
 
 
-# classes
+# a class is a "blueprint" for creating objects
 
 class Employee:
 	def __init__(self, first, last, email, pay): # make instance first arg
@@ -31,11 +31,28 @@ class Employee:
 		self.pay = pay
 	def full_name(self):
 		return ‘{} {}’.format(self.first, self.last) # def method
-
+	
+# create an object which inherits the attributes and merits from the class
 emp_1 = Employee(‘doodie’, ‘poodie’, 50000)
 print(emp_1.full_name())
 
-# RDKit
+# find maximal common substructure
+
+from rdkit.Chem import rdFMCS
+mol1 = Chem.MolFromSmiles("O=C(NCc1cc(OC)c(O)cc1)CCCC/C=C/C(C)C")
+mol2 = Chem.MolFromSmiles("CC(C)CCCCCC(=O)NCC1=CC(=C(C=C1)O)OC")
+mol3 = Chem.MolFromSmiles("c1(C=O)cc(OC)c(O)cc1")
+mols = [mol1,mol2,mol3]
+res=rdFMCS.FindMCS(mols)
+res.numAtoms
+10
+res.numBonds
+10
+>>> res.smartsString
+'[#6]1(-[#6]):[#6]:[#6](-[#8]-[#6]):[#6](:[#6]:[#6]:1)-[#8]'
+
+
+# RDKit. Taken from https://www.kaggle.com/code/vladislavkisin/tutorial-ml-in-chemistry-research-rdkit-mol2vec
 
 # load the data and look at them
 df= pd.read_csv('../input/mlchem/logP_dataset.csv', names=['smiles', 'logP'])
@@ -133,3 +150,5 @@ df['num_heteroatoms'] = df['mol'].apply(lambda x: Descriptors.NumHeteroatoms(x))
 # 1. A molecule is divided into substructures of a fixed radius e.g. a group of closest atoms around a heavy atom)
 # 2. These  substructures are fed to Word2vec yielding vector representations of substructures 
 # 3. Summing up substructure vectors we get vector representations of whole molecules.
+
+
