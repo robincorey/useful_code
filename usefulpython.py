@@ -274,3 +274,27 @@ def setHeight(height):
 import re
 ^\s*(\d+\.?\d*)\s*(kg|kilogram?)\s*$
 https://regex101.com/
+  
+# List items are ordered, changeable, and allow duplicate values
+# Tuple items are ordered, unchangeable, and allow duplicate values.
+# Set items are unordered, unchangeable, and do not allow duplicate values.
+
+# If the number of arguments is unknown, add a * before the parameter name:
+def my_function(*kids):
+  print("The youngest child is " + kids[2])
+
+my_function("Emil", "Tobias", "Linus")
+
+# to ignore order of arguments
+def my_function(child3, child2, child1):
+  print("The youngest child is " + child3)
+
+my_function(child1 = "Emil", child2 = "Tobias", child3 = "Linus")
+
+# function with default parameter
+def my_function(country = "Norway"):
+  print("I am from " + country)
+
+my_function("Sweden")
+my_function("India")
+my_function()
