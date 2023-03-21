@@ -36,6 +36,24 @@ class Employee:
 emp_1 = Employee(‘doodie’, ‘poodie’, 50000)
 print(emp_1.full_name())
 
+# Python Iterators: object that contains a countable number of values
+# Lists, tuples, dictionaries, and sets are all iterable objects. They are iterable containers which you can get an iterator from.
+# To create an object/class as an iterator you have to implement the methods __iter__() and __next__() to your object
+class MyNumbers:
+  def __iter__(self):
+    self.a = 1
+    return self
+
+  def __next__(self):
+    x = self.a
+    self.a += 1
+    return x
+
+myclass = MyNumbers()
+myiter = iter(myclass)
+
+All these objects have a iter() method which is used to get an iterator:
+
 # find maximal common substructure
 
 from rdkit.Chem import rdFMCS
