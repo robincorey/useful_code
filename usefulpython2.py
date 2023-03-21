@@ -51,6 +51,13 @@ res.numBonds
 >>> res.smartsString
 '[#6]1(-[#6]):[#6]:[#6](-[#8]-[#6]):[#6](:[#6]:[#6]:1)-[#8]'
 
+# Substructure Searching
+# Substructure matching can be done using query molecules built from SMARTS:
+m = Chem.MolFromSmiles('c1ccccc1O')
+patt = Chem.MolFromSmarts('ccO')
+m.HasSubstructMatch(patt)
+True
+m.GetSubstructMatch(patt)
 
 # RDKit. Taken from https://www.kaggle.com/code/vladislavkisin/tutorial-ml-in-chemistry-research-rdkit-mol2vec
 
