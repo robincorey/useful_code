@@ -7,6 +7,11 @@ b = 'ugly'
 
 print(f"hi {a} you are very {b}")
 
+
+# named indexes
+myorder = "I have a {carname}, it is a {model}."
+print(myorder.format(carname = "Ford", model = "Mustang"))
+
 # better looping
 
 a = [1, 2, 3]
