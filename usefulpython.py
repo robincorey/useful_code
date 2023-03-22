@@ -270,6 +270,15 @@ def setHeight(height):
         height = float(height)
     except:
         raise TypeError("Invalid height: '%s'. You can only set the height to a numeric value" % height)
+
+# else gives and else option for except
+try:
+  print("Hello")
+except:
+  print("Something went wrong")
+else:
+  print("Nothing went wrong")
+        
 #regex
 import re
 ^\s*(\d+\.?\d*)\s*(kg|kilogram?)\s*$
